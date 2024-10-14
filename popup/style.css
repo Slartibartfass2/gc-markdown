@@ -1,0 +1,9 @@
+body {
+    padding: 0.2rem;
+}
+
+#template-text {
+    min-width: 20rem;
+    min-height: 20rem;
+    resize: none;
+}

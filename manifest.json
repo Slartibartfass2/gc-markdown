@@ -1,0 +1,37 @@
+{
+    "$schema": "https://json.schemastore.org/chrome-manifest.json",
+    "manifest_version": 3,
+    "version": "1.0.0",
+    "name": "gc-markdown",
+    "description": "Create markdown files for caches using a template",
+    "permissions": ["storage", "clipboardWrite"],
+    "host_permissions": ["https://www.geocaching.com/geocache/*"],
+    "background": {
+        "chromium:service_worker": "background.js",
+        "firefox:scripts": ["background.js"]
+    },
+    "icons": {
+        "16": "images/icon-16.png",
+        "32": "images/icon-32.png",
+        "48": "images/icon-48.png",
+        "96": "images/icon-96.png",
+        "128": "images/icon-128.png"
+    },
+    "content_scripts": [
+        {
+            "matches": ["https://www.geocaching.com/geocache/*"],
+            "js": ["content/script.js"],
+            "css": ["content/style.css"]
+        }
+    ],
+    "action": {
+        "default_popup": "popup/index.html",
+        "default_icon": {
+            "16": "images/icon-16.png",
+            "32": "images/icon-32.png",
+            "48": "images/icon-48.png",
+            "96": "images/icon-96.png",
+            "128": "images/icon-128.png"
+        }
+    }
+}

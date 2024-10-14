@@ -1,2 +1,3 @@
 # gc-markdown
-Browser extension to create markdown files for caches
+
+Create markdown files for caches using a template.
