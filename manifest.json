@@ -34,5 +34,11 @@
             "96": "images/icon-96.png",
             "128": "images/icon-128.png"
         }
+    },
+    "browser_specific_settings": {
+        "gecko": {
+            "id": "{3224795d-1a60-464d-a859-a752c34d4f56}",
+            "strict_min_version": "109.0"
+        }
     }
 }
