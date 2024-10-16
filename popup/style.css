@@ -1,9 +1,11 @@
 body {
+    font-family: Arial, sans-serif;
+    font-size: 0.9rem;
     padding: 0.2rem;
 }
 
 #template-text {
-    min-width: 20rem;
-    min-height: 20rem;
+    min-width: 26rem;
+    min-height: 18rem;
     resize: none;
 }
