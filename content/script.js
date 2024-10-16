@@ -1,6 +1,10 @@
 import "./style.css";
 
 const storageKey = "gc-markdown-template";
+const titleId = "ctl00_ContentBody_CacheName";
+const gcCodeId = "ctl00_ContentBody_CoordInfoLinkControl1_uxCoordInfoCode";
+const difficultyId = "ctl00_ContentBody_uxLegendScale";
+const terrainId = "ctl00_ContentBody_Localize12";
 
 function replacePlaceholder(text, key, value) {
     let regex = new RegExp(String.raw`<\$\s*${key}\s*\$>`, "g");
@@ -15,17 +19,13 @@ function replacePlaceholders(placeholderValuePairs, text) {
 }
 
 function createMarkdownFile(template) {
-    const title = document.getElementById(
-        "ctl00_ContentBody_CacheName"
-    ).innerText;
-    const gcCode = document.getElementById(
-        "ctl00_ContentBody_CoordInfoLinkControl1_uxCoordInfoCode"
-    ).innerText;
+    const title = document.getElementById(titleId).textContent;
+    const gcCode = document.getElementById(gcCodeId).textContent;
     const difficulty = document
-        .getElementById("ctl00_ContentBody_uxLegendScale")
+        .getElementById(difficultyId)
         .children[0].alt.split(" ")[0];
     const terrain = document
-        .getElementById("ctl00_ContentBody_Localize12")
+        .getElementById(terrainId)
         .children[0].alt.split(" ")[0];
     const isSolvedValue = document
         .getElementById("activityBadge")
@@ -40,10 +40,10 @@ function createMarkdownFile(template) {
     );
     const isFound =
         foundTextElement !== null &&
-        foundTextElement.innerText.toLowerCase() === "found it!";
+        foundTextElement.textContent.toLowerCase() === "found it!";
     const finalCoordinates = isSolved
-        ? document.getElementById("uxLatLon").innerText
-        : "N AB° CD.DEF E GHI° JK.LMN";
+        ? document.getElementById("uxLatLon").textContent
+        : "";
 
     const placeholderValuePairs = [
         ["title", title],
@@ -62,7 +62,7 @@ let copyToClipboardBtn = document.getElementById("copyToClipboardBtn");
 if (copyToClipboardBtn === null) {
     copyToClipboardBtn = document.createElement("button");
     copyToClipboardBtn.id = "copyToClipboardBtn";
-    copyToClipboardBtn.innerText = "Copy to clipboard";
+    copyToClipboardBtn.textContent = "Copy to clipboard";
     copyToClipboardBtn.classList.add("gc-md-btn");
     document
         .getElementsByClassName("cacheDetailsTitle")[0]
@@ -73,7 +73,7 @@ let previewBtn = document.getElementById("previewBtn");
 if (previewBtn === null) {
     previewBtn = document.createElement("button");
     previewBtn.id = "previewBtn";
-    previewBtn.innerText = "Preview";
+    previewBtn.textContent = "Preview";
     previewBtn.classList.add("gc-md-btn");
     document
         .getElementsByClassName("cacheDetailsTitle")[0]
