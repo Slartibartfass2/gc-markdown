@@ -25,6 +25,7 @@
         }
     ],
     "action": {
+        "default_title": "GC Markdown",
         "default_popup": "popup/index.html",
         "default_icon": {
             "16": "images/icon-16.png",

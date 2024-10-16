@@ -4,13 +4,19 @@ if (typeof browser === "undefined") {
     var browser = chrome;
 }
 
-browser.storage.local.get(storageKey, function (data) {
-    const template = data[storageKey];
-    document.getElementById("template-text").value = template;
-});
+const textArea = document.getElementById("template-text");
+const button = document.getElementById("save-template-btn");
 
-document.getElementById("template-text").addEventListener("input", function () {
+function loadTemplate(data) {
+    const template = data[storageKey];
+    textArea.value = template;
+}
+
+function saveTemplate() {
     browser.storage.local.set({
-        [storageKey]: this.value,
+        [storageKey]: textArea.value,
     });
-});
+}
+
+browser.storage.local.get(storageKey, loadTemplate);
+button.onclick = saveTemplate;
