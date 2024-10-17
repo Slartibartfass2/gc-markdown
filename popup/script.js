@@ -32,7 +32,7 @@ const button = document.getElementById("save-template-btn");
 
 function loadTemplate(data) {
     const template = data[storageKey];
-    textArea.value = template;
+    textArea.value = template || "";
 }
 
 function saveTemplate() {

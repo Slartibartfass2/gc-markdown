@@ -49,6 +49,8 @@ function getDifficultyOrTerrain(id) {
 }
 
 function createMarkdownFile(template) {
+    if (template === undefined) return "";
+
     const title = document.getElementById(titleId).textContent || "";
     const gcCode = document.getElementById(gcCodeId).textContent || "";
     const difficulty = getDifficultyOrTerrain(difficultyId);
@@ -130,6 +132,9 @@ if (previewBtn === null) {
 }
 function showPreview(event) {
     event.preventDefault();
-    createMdFile().then((mdFileContent) => alert(mdFileContent));
+    createMdFile().then(function (mdFileContent) {
+        const content = mdFileContent === "" ? "No template found" : mdFileContent;
+        alert(content);
+    });
 }
 previewBtn.onclick = showPreview;
