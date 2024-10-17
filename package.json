@@ -1,7 +1,7 @@
 {
     "name": "gc-markdown",
     "description": "Create markdown files for caches using a template",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "scripts": {
         "dev": "extension dev -b firefox",
         "dev:chrome": "extension dev -b chrome",
